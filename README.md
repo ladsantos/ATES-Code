@@ -1,5 +1,7 @@
 # The ATES code
 
+> **Notice**: This is Leonardo dos Santos's fork of the ATES Code. It contains a few changes compared to the original code by Andrea Caldiroli.
+
 UPDATE 22/09/23
 
 A new version of ATES (v2.0) is now available. The main updates to version 1.0 include:
