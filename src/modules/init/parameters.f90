@@ -75,7 +75,7 @@
 
 	   ! Numerical constants
       real*8,parameter ::  CFL    = 0.6         ! CFL number
-      real*8,parameter ::  du_th  = 1.0e-3      ! Escape momentum variation
+      real*8           ::  du_th                ! Escape momentum variation
       real*8,parameter ::  dtu_th = 1.0d-8      ! Threshold variation of time deriv.
       real*8           ::  du                   ! Initial momentum variation
       real*8           ::  dtu                  ! Norm of time derivative

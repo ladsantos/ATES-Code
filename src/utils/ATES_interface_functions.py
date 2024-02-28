@@ -227,6 +227,7 @@ def reset_func(*args):
 	glob.widgets['grid'].set('Mixed')
 	glob.widgets['numflux'].set('HLLC')
 	glob.widgets['reconst'].set('PLM')
+	glob.widgets['du_th'].insert(0, '0.001')
 	glob.widgets['rho'].config(text = 'Planet density:')
 	glob.widgets['b0'].config(text = 'beta_0:')
 	glob.widgets['phi'].config(text = 'log(phi_P):')
@@ -354,6 +355,10 @@ def load_input(*args):
 	line = f.readline()
 	reconst = get_word(line,3)
 
+	# Relative momentum convergence criterion
+	line = f.readline()
+	du_th = get_word(line,4)
+
 	# Include He23S
 	line = f.readline()
 	IncludeHe23S = get_word(line,3)
@@ -400,7 +405,8 @@ def load_input(*args):
 	glob.widgets['LEUV'].insert(0,LEUV)
 	glob.widgets['grid'].set(grid) 
 	glob.widgets['numflux'].set(numflux) 
-	glob.widgets['reconst'].set(reconst) 
+	glob.widgets['reconst'].set(reconst)
+	glob.widgets['du_th'].insert(0, du_th)
 	
 	# Take care of alpha box
 	if appxmth == 'Mdot/4':
@@ -1027,6 +1033,10 @@ def start_func(*args):
 		# Reconstruction scheme
 		reconst = glob.widgets['reconst'].get()
 		f.write('%s' %('\nReconstruction scheme: ' + reconst.strip()))
+
+		# Convergence threshold
+		du_th = glob.widgets['du_th'].get()
+		f.write('%s' %('\nRelative momentum threshold: ' + du_th.strip()))
 
 		include_He23S = glob.He23S_var.get()
 		if include_He23S == 0:

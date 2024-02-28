@@ -185,6 +185,11 @@
 		if (rec_method.eq.'WENO3') use_weno3 = .true.
 		if (rec_method.eq.'PLM')   use_plm = .true.
 		
+		! Relative momentum convergence
+	    read(11,'(A)') line
+	    str = get_word(line, 4)
+	    read(str,*) du_th 
+		
 		! Include He23S
 		read(11,'(A)') line
 		str = get_word(line, 3)

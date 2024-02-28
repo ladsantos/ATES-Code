@@ -61,7 +61,7 @@ xcol7 = xcol6 + lbl_w + xspace
 lblframe_w = lbl_w + ent_w + 30 
 
 # Default properties for labels etc
-def_font   = 'Times'
+def_font   = 'Helvetica'
 def_lbl    = dict(font = (def_font,fontsize), anchor = 'e')
 def_lbl_w  = dict(font = (def_font,fontsize), anchor = 'w')
 def_lbl_we = dict(font = (def_font,12), anchor = 'c')
@@ -294,6 +294,13 @@ if "Numerical_params" in glob.frame_list:
 	reconst.place(x = xcol3 + lbl_w*0.6, y = ys, width = 0.75*ent_w, height = ent_h)
 	ys += lbl_h + yspace
 
+	# Convergence
+	lbl = tk.Label(window, text="Converge thresh.", **def_lbl)
+	lbl.place(x = xcol3  , y = ys, width = lbl_w*0.55, height = lbl_h)
+	ent_du_th = tk.Entry(window)
+	ent_du_th.place(x = xcol3 + lbl_w*0.6, y = ys, width = 0.75*ent_w, height = ent_h)
+	ys += lbl_h + yspace
+
 # ----- Fill Tick options frame ----- #
 
 if "Tick_options" in glob.frame_list:
@@ -449,7 +456,8 @@ glob.widgets['LEUV']      = ent_LEUV
 glob.widgets['flux']      = ent_flux
 glob.widgets['grid']      = grid 
 glob.widgets['numflux']   = numflux 
-glob.widgets['reconst']   = reconst 
+glob.widgets['reconst']   = reconst
+glob.widgets['du_th']     = ent_du_th
 glob.widgets['onlyPP']    = check_onlyPP
 glob.widgets['force']     = check_force
 glob.widgets['rho'] 	  = lbl_rho 
