@@ -272,8 +272,10 @@
             is_mom_const = du .lt. du_th
 	      is_zero_dt   = dtu .lt. dtu_th
             
-            ! Write to standard output
-            write(*,*) count,du !,dtu 
+            ! Write to standard output every 1000th iteration
+            if (mod(count,1000).eq.1) then
+                write(*,*) count,du !,dtu 
+            endif
 				
             !---------------------------------------------------!
             
