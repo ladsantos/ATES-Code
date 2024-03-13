@@ -37,7 +37,7 @@
       n_omp_threads = omp_get_max_threads()
       ! if (n_omp_threads .gt. 4) n_omp_threads = 4  ! Do not limit to a maximum of 4 threads!
       call omp_set_num_threads(n_omp_threads)
-      write(*,'(A12,I2,A12)') '    - Using',n_omp_threads,' OMP threads'
+      write(*,'(A12,I2,A12)') '    - Using ',n_omp_threads,' OMP threads'
       
       ! Loop parameters
       count = 0  
